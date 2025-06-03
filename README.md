@@ -6,3 +6,14 @@ For more information, see the [course curriculum](https://nextjs.org/learn) on t
 
 Live [Demo](https://nextjs-dashboard-gules-eight-12.vercel.app/) on Vercel.
 
+#### Demo credentials
+
+
+Email:
+```
+user@nextmail.com
+```
+Password: 
+```
+123456
+```
