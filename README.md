@@ -29,5 +29,5 @@ user@nextmail.com
 ```
 Password:
 ```plaintext
-Password: 23456
+Password: 123456
 ```
