@@ -7,7 +7,6 @@ import { z } from 'zod';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 import postgres from 'postgres';
-// import { sign } from 'crypto';
 
 const sql = postgres(process.env.POSTGRES_URL!, { ssl: 'require' });
 
@@ -74,30 +73,6 @@ export async function createInvoice(prevState: State, formData: FormData) {
     redirect('/dashboard/invoices');
 }
 
-// export async function updateInvoice(id: string, formData: FormData) {
-//     const { customerId, amount, status } = UpdateInvoice.parse({
-//         customerId: formData.get('customerId'),
-//         amount: formData.get('amount'),
-//         status: formData.get('status'),
-//     });
-
-//     const amountInCents = amount * 100;
-
-//     try {
-//         await sql`
-//             UPDATE invoices
-//             SET customer_id = ${customerId}, amount = ${amountInCents}, status = ${status}
-//             WHERE id = ${id}
-//             `;
-//     } catch (error) {
-//         console.error('Error updating invoice:', error);
-//         return { success: false, message: 'Failed to update invocie.'};
-//     }
-    
-//     revalidatePath('/dashboard/invoices');
-//     redirect('/dashboard/invoices');
-// }
-
 export async function updateInvoice(
   id: string,
   prevState: State,
@@ -135,16 +110,6 @@ export async function updateInvoice(
 }
 
 export async function deleteInvoice(id: string) {
-    // try {
-    //     await sql`DELETE FROM invoices WHERE id = ${id}`;
-    //         revalidatePath('/dashboard/invoices');
-    // } catch (error) {
-    //     console.error('Error deleting invoice:', error);
-    //     return { success: false, message: 'Failed to delete invoice.' };
-    // }
-    // throw new Error('Failed to Delete Invoice');
- 
-    // Unreachable code block
     await sql`DELETE FROM invoices WHERE id = ${id}`;
     revalidatePath('/dashboard/invoices');
 }
